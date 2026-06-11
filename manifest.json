@@ -1,0 +1,34 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup/popup.html",
+      "default_title": "Gelişim Raporu Asistanı"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "content/panel.js" ],
+      "matches": [ "https://e-okul.meb.gov.tr/OrtaOgretim/OKL/OOK07015.aspx*", "https://e-okul.meb.gov.tr/IlkOgretim/OKL/IOK10016.aspx*" ],
+      "run_at": "document_idle"
+   }, {
+      "js": [ "content/scraper.js" ],
+      "matches": [ "https://e-okul.meb.gov.tr/OrtaOgretim/OKL/OOK07003.aspx*", "https://e-okul.meb.gov.tr/IlkOgretim/OKL/IOK10007.aspx*" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "BRKNET Digital tarafından geliştirilen, gelişim raporu formlarını not tabanlı veya manuel olarak dolduran ve temizleyen öğretmen asistanı. Giriş gerektirmez.",
+   "host_permissions": [ "https://e-okul.meb.gov.tr/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "manifest_version": 3,
+   "name": "Gelişim Raporu Asistanı - BRKNET Digital",
+   "permissions": [ "storage", "tabs" ],
+   "version": "2.2.0"
+}
